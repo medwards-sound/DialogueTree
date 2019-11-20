@@ -65,8 +65,8 @@ public class DialogueEditorWindow : EditorWindow
     {
         Assembly unityEdAssembly = typeof(AudioImporter).Assembly;
         Type auUtil = unityEdAssembly.GetType("UnityEditor.AudioUtil");
-        MethodInfo method = auUtil.GetMethod("PlayClip", BindingFlags.Static | BindingFlags.Public, null, new System.Type[]{typeof(AudioClip)}, null);
-        method.Invoke(null, new object[]{given});
+        MethodInfo method = auUtil.GetMethod("PlayClip", BindingFlags.Static | BindingFlags.Public, null, new System.Type[] { typeof(AudioClip), typeof(int), typeof(bool)}, null);
+        method.Invoke(null, new object[] { given, 0, false });
     }
 
     void OnEnable()
